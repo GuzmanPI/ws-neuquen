@@ -1,0 +1,28 @@
+<mat-form-field appearance="outline" *ngIf="heroesList">
+  <mat-select placeholder="Heroes" [formControl]="heroes" (ngModelChange)="modelChanged($event)" multiple>
+    <mat-select-trigger>
+      <span [ngStyle]="{ color: isValidSelection ? '#f44336' : '' }">{{ heroes.value ? heroes.value[0] : '' }}</span>
+      <span *ngIf="heroes.value?.length > 1" class="additional-selection">
+        (+{{ heroes.value.length - 1 }} {{ heroes.value?.length === 2 ? 'other' : 'others' }})
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let hero of heroesList" [value]="hero.id">{{ hero.name }}</mat-option>
+  </mat-select>
+  <mat-hint *ngIf="statsChartData.length === 0">Please select at least two heroes</mat-hint>
+  <mat-hint *ngIf="isValidSelection" class="hint-error">You need to select at least two heroes</mat-hint>
+</mat-form-field>
+
+<mat-card *ngIf="statsChartData.length > 1">
+  <mat-card-header> <mat-card-title>Stats</mat-card-title> </mat-card-header>
+  <mat-card-content>
+    <div style="display: block">
+      <canvas
+        baseChart
+        [datasets]="statsChartData"
+        [colors]="statsChartColors"
+        [labels]="statsChartLabels"
+        [chartType]="statsChartType"
+      ></canvas>
+    </div>
+  </mat-card-content>
+</mat-card>

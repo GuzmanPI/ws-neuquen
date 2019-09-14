@@ -1,0 +1,90 @@
+<mat-card>
+  <form (ngSubmit)="onSubmit()" [formGroup]="heroForm">
+    <h2 class="title">General Info</h2>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between none">
+      <mat-form-field appearance="outline" [ngStyle.gt-xs]="{ 'margin-right': '16px' }" fxFlex>
+        <input placeholder="Name" formControlName="name" matInput required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" fxFlex>
+        <input placeholder="Image Url" formControlName="imageUrl" matInput />
+      </mat-form-field>
+    </div>
+
+    <div formGroupName="detail">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between none">
+        <mat-form-field appearance="outline" [ngStyle.gt-xs]="{ 'margin-right': '16px' }" fxFlex>
+          <input placeholder="Alias" formControlName="alias" matInput required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex>
+          <input placeholder="Portrait Image Url" formControlName="portraitUrl" matInput />
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row">
+        <mat-form-field appearance="outline" fxFlex>
+          <textarea placeholder="Short Description" formControlName="description" matInput required></textarea>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row">
+        <mat-form-field appearance="outline" fxFlex>
+          <textarea
+            placeholder="Long Description"
+            rows="5"
+            formControlName="longDescription"
+            matInput
+            required
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <h2 class="title">Stats</h2>
+
+    <div formGroupName="stats">
+      <div fxLayout="row">
+        <div fxLayout="column" fxFlex>
+          <p>Coding</p>
+          <br />
+          <mat-slider max="100" min="1" formControlName="coding" thumbLabel></mat-slider>
+        </div>
+        <div fxLayout="column" fxFlex>
+          <p>Combat</p>
+          <br />
+          <mat-slider max="100" min="1" formControlName="combat" thumbLabel></mat-slider>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxLayout="column" fxFlex>
+          <p>Durability</p>
+          <br />
+          <mat-slider max="100" min="1" formControlName="durability" thumbLabel></mat-slider>
+        </div>
+        <div fxLayout="column" fxFlex>
+          <p>Intelligence</p>
+          <br />
+          <mat-slider max="100" min="1" formControlName="intelligence" thumbLabel></mat-slider>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div fxLayout="column" fxFlex>
+          <p>Speed</p>
+          <br />
+          <mat-slider max="100" min="1" formControlName="speed" thumbLabel></mat-slider>
+        </div>
+        <div fxLayout="column" fxFlex>
+          <p>Strength</p>
+          <br />
+          <mat-slider max="100" min="1" formControlName="strength" thumbLabel></mat-slider>
+        </div>
+      </div>
+    </div>
+    <br />
+    <mat-card-actions fxLayout="row">
+      <button type="submit" color="accent" mat-raised-button fxFlex>CREATE</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

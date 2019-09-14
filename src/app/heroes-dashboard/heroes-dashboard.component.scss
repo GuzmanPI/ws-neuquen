@@ -1,0 +1,52 @@
+.bg-img {
+  cursor: pointer;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  height: 200px;
+  width: 132px;
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 5px 5px 0;
+}
+
+.bg-img:hover {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.menu-background {
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, #3c4043, transparent);
+}
+
+.name-background {
+  background-color: transparent;
+  background-image: linear-gradient(to top, #3c4043, transparent);
+  color: white;
+  height: 50px;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+button:hover {
+  color: white;
+  opacity: 1;
+}
+
+button {
+  color: #fff;
+  opacity: 0.54;
+}
+
+.plus-fab {
+  position: fixed;
+  right: 23px;
+  bottom: 23px;
+}
+
+span {
+  margin: 0 10px 0 10px;
+}

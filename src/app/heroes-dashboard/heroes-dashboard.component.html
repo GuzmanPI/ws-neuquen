@@ -1,0 +1,41 @@
+<div fxLayout="row wrap" fxLayoutAlign="center" *ngIf="(heroes$ | async) as heroes">
+  <div
+    class="bg-img"
+    *ngFor="let hero of heroes; let i = index"
+    [ngStyle]="{ 'background-image': 'url(' + hero.image + ')' }"
+    (mouseenter)="showImageMenu(i)"
+    (mouseleave)="hideImageMenu()"
+    (click)="navigateToDetail(hero.id)"
+  >
+    <div *ngIf="i == currentImage">
+      <div class="menu-background">
+        <!--        <button mat-icon-button (click)="openDeleteDialog(hero); $event.stopPropagation()">-->
+        <!--          <mat-icon aria-label="Delete hero button.">delete</mat-icon>-->
+        <!--        </button>-->
+        <!--        <button (click)="navigateToEditHero(hero.id); $event.stopPropagation()" mat-icon-button>-->
+        <!--          <mat-icon aria-label="Edit hero button.">edit</mat-icon>-->
+        <!--        </button>-->
+      </div>
+    </div>
+    <p
+      class="name-background"
+      *ngIf="i == currentImage"
+      style="margin-top: 151px"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+    >
+      <span>{{ hero.name }}</span>
+    </p>
+  </div>
+
+  <!--  <a-->
+  <!--    class="plus-fab"-->
+  <!--    color="accent"-->
+  <!--    routerLink="/create-a-new-hero"-->
+  <!--    matTooltip="Create a new hero"-->
+  <!--    matTooltipPosition="left"-->
+  <!--    mat-fab-->
+  <!--  >-->
+  <!--    <mat-icon aria-label="Create a new hero.">add</mat-icon>-->
+  <!--  </a>-->
+</div>

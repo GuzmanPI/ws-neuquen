@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Delete Hero</h1>
+<div mat-dialog-content>
+  <p>Are you sure you want to delete {{ data.name }}?</p>
+</div>
+<div mat-dialog-actions>
+  <button aria-label="Cancel and close dialog.r" (click)="closeDialog()" cdkFocusInitial mat-button>CANCEL</button>
+  <button aria-label="Delete hero." color="warn" (click)="deleteHero()" mat-button>DELETE</button>
+</div>

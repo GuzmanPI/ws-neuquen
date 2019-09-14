@@ -1,0 +1,26 @@
+<div *ngIf="(hero$ | async) as hero">
+  <mat-card>
+    <mat-card-header>
+      <div
+        mat-card-avatar
+        [ngStyle]="{ 'background-image': 'url(' + hero.imageUrl + ')' }"
+        class="card-header-image"
+      ></div>
+      <mat-card-title [ngClass]="{ 'no-subtitle': !hero.detail.alias }">{{ hero.name }}</mat-card-title>
+      <mat-card-subtitle *ngIf="hero.detail.alias">{{ hero.detail.alias }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="hero.detail.portraitUrl" [alt]="hero.name" />
+  </mat-card>
+  <br />
+  <mat-card>
+    <mat-card-header> <mat-card-title>About</mat-card-title> </mat-card-header>
+
+    <p class="mat-body-1">{{ hero.detail.description }}</p>
+
+    <mat-card-content>
+      <p class="mat-body-1">{{ hero.detail.longDescription }}</p>
+    </mat-card-content>
+  </mat-card>
+  <br />
+  <app-doughnut-chart [data]="chartData"></app-doughnut-chart>
+</div>

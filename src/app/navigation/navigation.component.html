@@ -1,0 +1,44 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
+  >
+    <mat-toolbar style="background-color: #fafafa">
+      <img src="../../assets/images/hero-devs.png" alt="Hero Devs" /> <span class="company-name">Characters</span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a
+        [ngStyle]="{ background: url === 'heroes-dashboard' ? 'rgba(0, 0, 0, 0.1)' : '' }"
+        routerLink="/heroes-dashboard"
+        mat-list-item
+        >Rick & Morty</a
+      >
+      <!--      <a-->
+      <!--        [ngStyle]="{ background: url === 'compare-heroes' ? 'rgba(0, 0, 0, 0.1)' : '' }"-->
+      <!--        routerLink="/compare-heroes"-->
+      <!--        mat-list-item-->
+      <!--        >Compare Heroes</a-->
+      <!--      >-->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="toolbar-elevation" color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="(isHandset$ | async)"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>{{ url | urlToTitle }}</span>
+    </mat-toolbar>
+    <!-- App Content -->
+    <div class="app-content"><router-outlet></router-outlet></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
